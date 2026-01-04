@@ -1,0 +1,126 @@
+from flask import Flask, request, jsonify, send_file
+from flask_cors import CORS
+from flask_mail import Mail, Message
+import os
+from datetime import datetime
+from database import Database
+
+app = Flask(__name__)
+CORS(app)
+
+# Configuration
+app.config['SECRET_KEY'] = 'your-secret-key-here-change-in-production'
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USERNAME'] = 'your-email@gmail.com'  # Change this
+app.config['MAIL_PASSWORD'] = 'your-app-password'  # Change this
+app.config['MAIL_DEFAULT_SENDER'] = 'your-email@gmail.com'  # Change this
+
+mail = Mail(app)
+db = Database()
+
+@app.route('/api/contact', methods=['POST'])
+def contact():
+    """Handle contact form submissions"""
+    try:
+        data = request.get_json()
+        
+        # Validate required fields
+        required_fields = ['name', 'email', 'subject', 'message']
+        for field in required_fields:
+            if field not in data or not data[field].strip():
+                return jsonify({'error': f'Missing required field: {field}'}), 400
+        
+        name = data['name'].strip()
+        email = data['email'].strip()
+        subject = data['subject'].strip()
+        message = data['message'].strip()
+        
+        # Save to database
+        db.save_contact(name, email, subject, message)
+        
+        # Send email notification
+        try:
+            msg = Message(
+                subject=f'Portfolio Contact: {subject}',
+                recipients=['bhattasandesh148@gmail.com'],  # Your email
+                body=f"""
+New contact form submission:
+
+Name: {name}
+Email: {email}
+Subject: {subject}
+
+Message:
+{message}
+
+---
+Sent from Portfolio Website
+Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+                """
+            )
+            mail.send(msg)
+        except Exception as e:
+            print(f"Email sending failed: {e}")
+            # Continue even if email fails
+        
+        return jsonify({
+            'success': True,
+            'message': 'Message sent successfully!'
+        }), 200
+        
+    except Exception as e:
+        print(f"Error in contact endpoint: {e}")
+        return jsonify({'error': 'Internal server error'}), 500
+
+
+@app.route('/api/download-resume', methods=['GET'])
+def download_resume():
+    """Handle resume download requests"""
+    try:
+        resume_path = os.path.join(os.path.dirname(__file__), '..', 'assets', 'Sandesh_Bhatta_Resume.pdf')
+        
+        if not os.path.exists(resume_path):
+            return jsonify({'error': 'Resume file not found'}), 404
+        
+        # Track download
+        db.track_resume_download()
+        
+        return send_file(
+            resume_path,
+            as_attachment=True,
+            download_name='Sandesh_Bhatta_Resume.pdf',
+            mimetype='application/pdf'
+        )
+        
+    except Exception as e:
+        print(f"Error in download-resume endpoint: {e}")
+        return jsonify({'error': 'Internal server error'}), 500
+
+
+@app.route('/api/stats', methods=['GET'])
+def get_stats():
+    """Get portfolio statistics"""
+    try:
+        stats = db.get_stats()
+        return jsonify(stats), 200
+    except Exception as e:
+        print(f"Error in stats endpoint: {e}")
+        return jsonify({'error': 'Internal server error'}), 500
+
+
+@app.route('/api/health', methods=['GET'])
+def health_check():
+    """Health check endpoint"""
+    return jsonify({
+        'status': 'healthy',
+        'timestamp': datetime.now().isoformat()
+    }), 200
+
+
+if __name__ == '__main__':
+    print("Starting Flask server...")
+    print("Server running at http://localhost:5000")
+    print("Press Ctrl+C to stop")
+    app.run(debug=True, host='0.0.0.0', port=5000)
