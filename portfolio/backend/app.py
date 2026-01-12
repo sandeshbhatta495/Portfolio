@@ -110,6 +110,61 @@ def get_stats():
         return jsonify({'error': 'Internal server error'}), 500
 
 
+@app.route('/api/projects', methods=['GET'])
+def get_projects():
+    """Get all projects by scanning the assets/projects directory"""
+    try:
+        projects_dir = os.path.join(os.path.dirname(__file__), '..', 'assets', 'projects')
+        
+        if not os.path.exists(projects_dir):
+            return jsonify({'error': 'Projects directory not found'}), 404
+        
+        projects = []
+        supported_extensions = {'.jpg', '.jpeg', '.png', '.gif', '.webp'}
+        
+        # Scan directory for image files
+        for filename in os.listdir(projects_dir):
+            file_path = os.path.join(projects_dir, filename)
+            
+            # Skip directories and non-image files
+            if os.path.isdir(file_path):
+                continue
+            
+            # Get file extension
+            _, ext = os.path.splitext(filename)
+            if ext.lower() not in supported_extensions:
+                continue
+            
+            # Extract project title from filename
+            title = os.path.splitext(filename)[0]
+            # Convert to title case and clean up
+            title = title.replace('-', ' ').replace('_', ' ').title()
+            
+            # Build relative path for frontend
+            image_path = f'assets/projects/{filename}'
+            
+            # Create project object
+            project = {
+                'title': title,
+                'image': image_path,
+                'description': f'Project: {title}',
+                'tags': [],
+                'category': 'all',
+                'github': 'https://github.com/sandeshbhatta495'
+            }
+            
+            projects.append(project)
+        
+        # Sort projects by title
+        projects.sort(key=lambda x: x['title'])
+        
+        return jsonify(projects), 200
+        
+    except Exception as e:
+        print(f"Error in projects endpoint: {e}")
+        return jsonify({'error': 'Internal server error'}), 500
+
+
 @app.route('/api/health', methods=['GET'])
 def health_check():
     """Health check endpoint"""
