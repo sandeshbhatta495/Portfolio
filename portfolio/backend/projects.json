@@ -90,7 +90,7 @@
             "github": "https://github.com/sandeshbhatta495"
         },
         {
-            "filename": "AI chtbot.jpg",
+            "filename": "ai chatbot.jpg",
             "title": "AI Chatbot Assistant",
             "description": "Intelligent conversational AI chatbot built with Python and natural language processing. Implements intent recognition, context management, and personalized responses. Uses machine learning models for understanding user queries and providing relevant answers across multiple domains.",
             "category": "python",
@@ -161,7 +161,7 @@
             "github": "https://github.com/sandeshbhatta495"
         },
         {
-            "filename": "suduko solver",
+            "filename": "sudoku solver.jpg",
             "title": "Sudoku Solver Algorithm",
             "description": "Intelligent Sudoku puzzle solver implementing backtracking algorithm in Python. Solves puzzles of varying difficulty levels using constraint satisfaction and recursive techniques. Features puzzle validation, step-by-step solution visualization, and performance optimization for fast solving.",
             "category": "python",
@@ -190,7 +190,7 @@
             "github": "https://github.com/sandeshbhatta495"
         },
         {
-            "filename": "n8n automation",
+            "filename": "n8n automation.jpg",
             "title": "n8n Workflow Automation",
             "description": "Advanced workflow automation project using n8n platform. Creates automated workflows connecting multiple services and APIs. Implements data transformation, conditional logic, and scheduled tasks for business process automation and integration between different platforms.",
             "category": "web",
@@ -248,7 +248,7 @@
             "github": "https://github.com/sandeshbhatta495"
         },
         {
-            "filename": "smart-agriculture.jpg",
+            "filename": "smart agriculture.jpg",
             "title": "Smart Agriculture IoT System",
             "description": "IoT-based smart agriculture monitoring system using Arduino and sensors. Monitors soil moisture, temperature, humidity, and automates irrigation. Features real-time data collection, remote monitoring capabilities, and automated decision-making for optimal crop management and water conservation.",
             "category": "hardware",
@@ -259,6 +259,40 @@
                 "Agriculture",
                 "Automation",
                 "Embedded Systems"
+            ],
+            "github": "https://github.com/sandeshbhatta495"
+        },
+        {
+            "filename": "breast cancer detection.jpg",
+            "title": "Breast Cancer Detection AI",
+            "description": "Advanced machine learning model for breast cancer detection using medical imaging and diagnostic data. Implements deep learning algorithms to classify tumors as benign or malignant with high accuracy. Features comprehensive data preprocessing, feature extraction from Wisconsin Breast Cancer Dataset, and multiple ML algorithms including SVM, Random Forest, and Neural Networks for early cancer detection and diagnosis support.",
+            "category": "python",
+            "tags": [
+                "Python",
+                "Machine Learning",
+                "Deep Learning",
+                "Medical AI",
+                "Healthcare",
+                "Classification",
+                "Neural Networks",
+                "SVM"
+            ],
+            "github": "https://github.com/sandeshbhatta495"
+        },
+        {
+            "filename": "heart disease detection.jpg",
+            "title": "Heart Disease Prediction System",
+            "description": "Intelligent heart disease prediction system using machine learning to assess cardiovascular risk. Analyzes patient health metrics including blood pressure, cholesterol levels, ECG results, and lifestyle factors to predict heart disease probability. Implements ensemble learning methods combining Logistic Regression, Decision Trees, and Random Forest for accurate cardiac risk assessment and early intervention support.",
+            "category": "python",
+            "tags": [
+                "Python",
+                "Machine Learning",
+                "Healthcare",
+                "Medical AI",
+                "Classification",
+                "Predictive Analytics",
+                "Cardiology",
+                "Random Forest"
             ],
             "github": "https://github.com/sandeshbhatta495"
         }
