@@ -261,6 +261,40 @@
                 "Embedded Systems"
             ],
             "github": "https://github.com/sandeshbhatta495"
+        },
+        {
+            "filename": "breast cancer detection.jpg",
+            "title": "Breast Cancer Detection AI",
+            "description": "Advanced machine learning model for breast cancer detection using medical imaging and diagnostic data. Implements deep learning algorithms to classify tumors as benign or malignant with high accuracy. Features comprehensive data preprocessing, feature extraction from Wisconsin Breast Cancer Dataset, and multiple ML algorithms including SVM, Random Forest, and Neural Networks for early cancer detection and diagnosis support.",
+            "category": "python",
+            "tags": [
+                "Python",
+                "Machine Learning",
+                "Deep Learning",
+                "Medical AI",
+                "Healthcare",
+                "Classification",
+                "Neural Networks",
+                "SVM"
+            ],
+            "github": "https://github.com/sandeshbhatta495"
+        },
+        {
+            "filename": "heart disease detection.jpg",
+            "title": "Heart Disease Prediction System",
+            "description": "Intelligent heart disease prediction system using machine learning to assess cardiovascular risk. Analyzes patient health metrics including blood pressure, cholesterol levels, ECG results, and lifestyle factors to predict heart disease probability. Implements ensemble learning methods combining Logistic Regression, Decision Trees, and Random Forest for accurate cardiac risk assessment and early intervention support.",
+            "category": "python",
+            "tags": [
+                "Python",
+                "Machine Learning",
+                "Healthcare",
+                "Medical AI",
+                "Classification",
+                "Predictive Analytics",
+                "Cardiology",
+                "Random Forest"
+            ],
+            "github": "https://github.com/sandeshbhatta495"
         }
     ]
 }
