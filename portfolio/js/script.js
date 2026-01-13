@@ -255,9 +255,77 @@ skillsFilterBtns.forEach(btn => {
     });
 });
 
+// Dynamic Project Loading
+async function loadProjects() {
+    const projectsGrid = document.querySelector('.projects-grid');
+
+    try {
+        // Show loading state
+        projectsGrid.innerHTML = '<div class="loading-projects">Loading projects...</div>';
+
+        // Fetch projects from backend
+        const response = await fetch('http://localhost:5000/api/projects');
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch projects');
+        }
+
+        const projects = await response.json();
+
+        // Clear loading state
+        projectsGrid.innerHTML = '';
+
+        // Generate project cards
+        projects.forEach(project => {
+            const projectCard = document.createElement('div');
+            projectCard.className = 'project-card reveal';
+            projectCard.setAttribute('data-category', project.category || 'all');
+
+            projectCard.innerHTML = `
+                <div class="project-image">
+                    <img src="${project.image}" alt="${project.title}">
+                    <div class="project-overlay">
+                        <a href="${project.github}" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">${project.title}</h3>
+                    <p class="project-description">${project.description}</p>
+                    <div class="project-tags">
+                        ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                    </div>
+                </div>
+            `;
+
+            projectsGrid.appendChild(projectCard);
+        });
+
+        // Re-initialize reveal observer for new elements
+        const newRevealElements = document.querySelectorAll('.project-card.reveal');
+        newRevealElements.forEach(element => {
+            revealObserver.observe(element);
+        });
+
+    } catch (error) {
+        console.error('Error loading projects:', error);
+        projectsGrid.innerHTML = `
+            <div class="error-message">
+                <p>Unable to load projects. Please make sure the backend server is running.</p>
+                <p style="font-size: 0.9em; opacity: 0.7;">Run: cd backend && python app.py</p>
+            </div>
+        `;
+    }
+}
+
+// Load projects when page loads
+loadProjects();
+
 // Projects Filter
 const projectsFilterBtns = document.querySelectorAll('.projects-filter .filter-btn');
 const projectCards = document.querySelectorAll('.project-card');
+
 
 projectsFilterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -267,16 +335,24 @@ projectsFilterBtns.forEach(btn => {
 
         const filter = btn.getAttribute('data-filter');
 
+        // Query project cards dynamically (since they're loaded async)
+        const projectCards = document.querySelectorAll('.project-card');
+
         projectCards.forEach(card => {
-            if (filter === 'all') {
-                card.classList.remove('hidden');
+            const category = card.getAttribute('data-category');
+
+            if (filter === 'all' || category === filter) {
+                card.style.display = 'block';
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 10);
             } else {
-                const category = card.getAttribute('data-category');
-                if (category === filter) {
-                    card.classList.remove('hidden');
-                } else {
-                    card.classList.add('hidden');
-                }
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.display = 'none';
+                }, 300);
             }
         });
     });

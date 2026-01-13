@@ -1,0 +1,266 @@
+{
+    "projects": [
+        {
+            "filename": "dog cat classification.jpg",
+            "title": "Dog vs Cat Image Classification",
+            "description": "Deep learning image classification model using Convolutional Neural Networks (CNN) to distinguish between dogs and cats. Built with TensorFlow/Keras, achieving high accuracy through transfer learning and data augmentation techniques. Trained on thousands of labeled images to create a robust binary classifier.",
+            "category": "python",
+            "tags": [
+                "Python",
+                "Machine Learning",
+                "Deep Learning",
+                "CNN",
+                "TensorFlow",
+                "Image Classification"
+            ],
+            "github": "https://github.com/sandeshbhatta495"
+        },
+        {
+            "filename": "titanic survial prediction.jpg",
+            "title": "Titanic Survival Prediction",
+            "description": "Machine learning classification model predicting passenger survival on the Titanic using various ML algorithms including Random Forest, Logistic Regression, and Decision Trees. Features comprehensive data preprocessing, feature engineering, and model comparison to achieve optimal prediction accuracy.",
+            "category": "python",
+            "tags": [
+                "Python",
+                "Machine Learning",
+                "Classification",
+                "Pandas",
+                "Scikit-learn",
+                "Data Analysis"
+            ],
+            "github": "https://github.com/sandeshbhatta495"
+        },
+        {
+            "filename": "slary and job  prediction ml.jpg",
+            "title": "Salary and Job Prediction ML",
+            "description": "Advanced machine learning model for predicting salary ranges and job positions based on skills, experience, and education. Implements regression and classification algorithms with feature importance analysis. Helps job seekers understand market trends and expected compensation.",
+            "category": "python",
+            "tags": [
+                "Python",
+                "Machine Learning",
+                "Regression",
+                "Classification",
+                "Career Analytics"
+            ],
+            "github": "https://github.com/sandeshbhatta495"
+        },
+        {
+            "filename": "weather prediction.jpg",
+            "title": "Weather Prediction System",
+            "description": "Machine learning-based weather forecasting system using historical weather data and time series analysis. Implements LSTM neural networks and regression models to predict temperature, humidity, and precipitation. Features data visualization with interactive charts and real-time predictions.",
+            "category": "python",
+            "tags": [
+                "Python",
+                "Machine Learning",
+                "Time Series",
+                "LSTM",
+                "Weather Forecasting",
+                "Data Visualization"
+            ],
+            "github": "https://github.com/sandeshbhatta495"
+        },
+        {
+            "filename": "diwali-sales.jpg",
+            "title": "Diwali Sales Data Analysis",
+            "description": "Comprehensive data analysis project examining Diwali festival sales patterns using Python. Leverages Pandas for data manipulation, NumPy for numerical analysis, and Matplotlib/Seaborn for visualization. Provides insights into customer behavior, popular products, and revenue trends during the festive season.",
+            "category": "python",
+            "tags": [
+                "Python",
+                "Data Analysis",
+                "Pandas",
+                "NumPy",
+                "Matplotlib",
+                "Business Intelligence"
+            ],
+            "github": "https://github.com/sandeshbhatta495"
+        },
+        {
+            "filename": "web scaping.jpg",
+            "title": "Web Scraping Tool",
+            "description": "Automated web scraping application built with Python using BeautifulSoup and Selenium. Extracts structured data from websites, handles dynamic content, and stores information in databases. Features error handling, rate limiting, and data cleaning pipelines for reliable data extraction.",
+            "category": "python",
+            "tags": [
+                "Python",
+                "Web Scraping",
+                "BeautifulSoup",
+                "Selenium",
+                "Automation",
+                "Data Mining"
+            ],
+            "github": "https://github.com/sandeshbhatta495"
+        },
+        {
+            "filename": "AI chtbot.jpg",
+            "title": "AI Chatbot Assistant",
+            "description": "Intelligent conversational AI chatbot built with Python and natural language processing. Implements intent recognition, context management, and personalized responses. Uses machine learning models for understanding user queries and providing relevant answers across multiple domains.",
+            "category": "python",
+            "tags": [
+                "Python",
+                "AI",
+                "NLP",
+                "Chatbot",
+                "Machine Learning",
+                "Natural Language Processing"
+            ],
+            "github": "https://github.com/sandeshbhatta495"
+        },
+        {
+            "filename": "bankin gmanagement sys.jpg",
+            "title": "Banking Management System",
+            "description": "Full-featured banking management system developed in Python with SQLite database. Implements account creation, transactions, balance inquiries, and transaction history. Features secure authentication, data validation, and comprehensive error handling for reliable banking operations.",
+            "category": "python",
+            "tags": [
+                "Python",
+                "SQLite",
+                "Database Management",
+                "Banking System",
+                "CRUD Operations"
+            ],
+            "github": "https://github.com/sandeshbhatta495"
+        },
+        {
+            "filename": "school-result.jpg",
+            "title": "School Result Management System",
+            "description": "Student result management application built with Python for educational institutions. Manages student records, grades, attendance, and generates report cards. Features data persistence with SQLite, user authentication, and automated grade calculation with performance analytics.",
+            "category": "python",
+            "tags": [
+                "Python",
+                "Database",
+                "Education",
+                "Management System",
+                "SQLite"
+            ],
+            "github": "https://github.com/sandeshbhatta495"
+        },
+        {
+            "filename": "qr code generator.jpg",
+            "title": "QR Code Generator",
+            "description": "Python utility application for generating customizable QR codes. Supports various data types including URLs, text, contact information, and WiFi credentials. Features customization options for size, color, and error correction levels. Built with qrcode library and PIL for image processing.",
+            "category": "python",
+            "tags": [
+                "Python",
+                "QR Code",
+                "Image Processing",
+                "Utility Tool",
+                "PIL"
+            ],
+            "github": "https://github.com/sandeshbhatta495"
+        },
+        {
+            "filename": "to do list.jpg",
+            "title": "To-Do List Application",
+            "description": "Task management application built with Python featuring add, edit, delete, and mark complete functionality. Implements data persistence with JSON/SQLite storage, priority levels, due dates, and category organization. Clean user interface for efficient task tracking and productivity.",
+            "category": "python",
+            "tags": [
+                "Python",
+                "Task Management",
+                "Productivity",
+                "GUI",
+                "Database"
+            ],
+            "github": "https://github.com/sandeshbhatta495"
+        },
+        {
+            "filename": "suduko solver",
+            "title": "Sudoku Solver Algorithm",
+            "description": "Intelligent Sudoku puzzle solver implementing backtracking algorithm in Python. Solves puzzles of varying difficulty levels using constraint satisfaction and recursive techniques. Features puzzle validation, step-by-step solution visualization, and performance optimization for fast solving.",
+            "category": "python",
+            "tags": [
+                "Python",
+                "Algorithm",
+                "Backtracking",
+                "Puzzle Solver",
+                "Recursion"
+            ],
+            "github": "https://github.com/sandeshbhatta495"
+        },
+        {
+            "filename": "whatsapp automation.jpg",
+            "title": "WhatsApp Automation Bot",
+            "description": "Automated WhatsApp messaging bot built with Python and Selenium. Schedules messages, sends bulk messages, and automates repetitive communication tasks. Features contact management, message templates, and scheduling capabilities for efficient communication automation.",
+            "category": "python",
+            "tags": [
+                "Python",
+                "Automation",
+                "WhatsApp",
+                "Selenium",
+                "Bot",
+                "Messaging"
+            ],
+            "github": "https://github.com/sandeshbhatta495"
+        },
+        {
+            "filename": "n8n automation",
+            "title": "n8n Workflow Automation",
+            "description": "Advanced workflow automation project using n8n platform. Creates automated workflows connecting multiple services and APIs. Implements data transformation, conditional logic, and scheduled tasks for business process automation and integration between different platforms.",
+            "category": "web",
+            "tags": [
+                "Automation",
+                "n8n",
+                "Workflow",
+                "API Integration",
+                "No-Code"
+            ],
+            "github": "https://github.com/sandeshbhatta495"
+        },
+        {
+            "filename": "Portfolio website.png",
+            "title": "Portfolio Website",
+            "description": "Modern, responsive portfolio website built with HTML, CSS, JavaScript, and Python Flask backend. Features dynamic project loading, contact form with database integration, resume download tracking, and beautiful UI with smooth animations. Implements RESTful API and SQLite database for data management.",
+            "category": "web",
+            "tags": [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "Python",
+                "Flask",
+                "Web Development",
+                "Full Stack"
+            ],
+            "github": "https://github.com/sandeshbhatta495"
+        },
+        {
+            "filename": "pygame.jpg",
+            "title": "Pygame Game Development",
+            "description": "Interactive game developed using Python's Pygame library. Features sprite animation, collision detection, score tracking, and sound effects. Demonstrates object-oriented programming principles and game development fundamentals with smooth gameplay and engaging mechanics.",
+            "category": "python",
+            "tags": [
+                "Python",
+                "Pygame",
+                "Game Development",
+                "OOP",
+                "Graphics"
+            ],
+            "github": "https://github.com/sandeshbhatta495"
+        },
+        {
+            "filename": "akinator game.jpg",
+            "title": "Akinator Game Clone",
+            "description": "Python implementation of the popular Akinator guessing game using decision tree algorithm and machine learning concepts. Features intelligent question selection, character database, and learning capability. Demonstrates AI logic and interactive gameplay with high accuracy predictions.",
+            "category": "python",
+            "tags": [
+                "Python",
+                "Game",
+                "AI",
+                "Decision Tree",
+                "Interactive"
+            ],
+            "github": "https://github.com/sandeshbhatta495"
+        },
+        {
+            "filename": "smart-agriculture.jpg",
+            "title": "Smart Agriculture IoT System",
+            "description": "IoT-based smart agriculture monitoring system using Arduino and sensors. Monitors soil moisture, temperature, humidity, and automates irrigation. Features real-time data collection, remote monitoring capabilities, and automated decision-making for optimal crop management and water conservation.",
+            "category": "hardware",
+            "tags": [
+                "IoT",
+                "Arduino",
+                "Sensors",
+                "Agriculture",
+                "Automation",
+                "Embedded Systems"
+            ],
+            "github": "https://github.com/sandeshbhatta495"
+        }
+    ]
+}
