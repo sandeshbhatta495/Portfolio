@@ -1,216 +1,245 @@
-# 👋 Hi, I’m Sandesh Bhatta
+# Sandesh Bhatta - Portfolio Website
 
-**Electronics, Communication & IT Engineering Undergraduate**  
-**Python | Data Analysis | Machine Learning | Automation | IoT**
+A modern, professional portfolio website showcasing my projects, skills, and experience as an Electronics, Communication & IT Engineering student.
 
-> *I turn engineering ideas into practical, real-world solutions using software intelligence and hardware systems.*
+## ✨ Features
+
+### Modern Design
+- 🎨 **Glassmorphism UI** - Beautiful glass-morphic design elements
+- 🌓 **Dark/Light Theme** - Toggle between themes with persistent preference
+- 📱 **Fully Responsive** - Optimized for all devices (mobile, tablet, desktop)
+- ✨ **Smooth Animations** - Scroll reveal, typing effects, and particle background
+- 🎯 **Interactive Elements** - Hover effects, transitions, and micro-animations
+
+### Sections
+- 🏠 **Hero** - Eye-catching introduction with typing animation
+- 👤 **About** - Personal background and what drives me
+- 💼 **Experience** - Timeline of education and achievements
+- 🛠️ **Skills** - Categorized skills with progress bars and filters
+- 🚀 **Projects** - Filterable project showcase with GitHub links
+- 🎓 **Certifications** - Carousel of licenses and certifications
+- 📧 **Contact** - Working contact form with backend integration
+
+### Backend Features
+- 🐍 **Python Flask API** - RESTful backend server
+- 📧 **Email Notifications** - Automatic email alerts for contact form submissions
+- 💾 **SQLite Database** - Store contacts and track resume downloads
+- 📄 **Resume Download** - Download resume with analytics tracking
+- 📊 **Statistics** - Track portfolio engagement
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Python 3.8 or higher
+- Modern web browser (Chrome, Firefox, Safari, Edge)
+
+### Installation
+
+1. **Clone or download the repository**
+   ```bash
+   cd portfolio
+   ```
+
+2. **Install Python dependencies**
+   ```bash
+   cd backend
+   pip install -r requirements.txt
+   ```
+
+3. **Configure email settings** (Optional but recommended)
+   
+   Edit `backend/app.py` and update the email configuration:
+   ```python
+   app.config['MAIL_USERNAME'] = 'your-email@gmail.com'
+   app.config['MAIL_PASSWORD'] = 'your-app-password'
+   app.config['MAIL_DEFAULT_SENDER'] = 'your-email@gmail.com'
+   ```
+
+   For Gmail, you'll need to:
+   - Enable 2-factor authentication
+   - Generate an app password: https://myaccount.google.com/apppasswords
+
+4. **Add your resume** (Optional)
+   
+   Place your resume PDF in the `assets` folder:
+   ```
+   portfolio/assets/Sandesh_Bhatta_Resume.pdf
+   ```
+
+### Running the Application
+
+1. **Start the backend server**
+   ```bash
+   cd backend
+   python app.py
+   ```
+   The server will start at `http://localhost:5000`
+
+2. **Open the frontend**
+   
+   Simply open `index.html` in your web browser, or use a local server:
+   ```bash
+   # Using Python
+   python -m http.server 8000
+   
+   # Using Node.js (if you have http-server installed)
+   npx http-server -p 8000
+   ```
+   Then visit `http://localhost:8000`
+
+## 📁 Project Structure
+
+```
+portfolio/
+├── index.html              # Main HTML file
+├── css/
+│   └── style.css          # Styles with glassmorphism and themes
+├── js/
+│   └── script.js          # Interactive features and animations
+├── assets/
+│   ├── profile.jpg        # Profile picture
+│   ├── Sandesh_Bhatta_Resume.pdf  # Resume file
+│   └── projects/          # Project screenshots
+├── backend/
+│   ├── app.py            # Flask application
+│   ├── database.py       # Database operations
+│   ├── config.py         # Configuration
+│   ├── requirements.txt  # Python dependencies
+│   └── portfolio.db      # SQLite database (auto-created)
+└── README.md             # This file
+```
+
+## 🎨 Customization
+
+### Colors & Theme
+Edit CSS variables in `css/style.css`:
+```css
+:root {
+    --primary-color: #6366f1;
+    --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    /* ... more variables */
+}
+```
+
+### Content
+- Update personal information in `index.html`
+- Modify projects, skills, and certifications
+- Replace profile picture in `assets/profile.jpg`
+
+### Backend
+- Configure email settings in `backend/app.py`
+- Adjust database schema in `backend/database.py`
+- Set environment variables for production
+
+## 🌐 Deployment
+
+### Frontend
+Deploy to any static hosting service:
+- **GitHub Pages** - Free hosting for static sites
+- **Netlify** - Automatic deployments from Git
+- **Vercel** - Fast and easy deployment
+- **Cloudflare Pages** - Global CDN
+
+### Backend
+Deploy the Flask backend to:
+- **Heroku** - Easy Python app deployment
+- **PythonAnywhere** - Python-specific hosting
+- **DigitalOcean** - VPS with full control
+- **AWS/Google Cloud** - Scalable cloud platforms
+
+**Important:** Update CORS settings in `backend/app.py` for production:
+```python
+CORS(app, origins=['https://your-domain.com'])
+```
+
+## 📧 Email Configuration
+
+For the contact form to work, you need to configure email settings:
+
+### Gmail Setup
+1. Enable 2-factor authentication on your Google account
+2. Generate an app password: https://myaccount.google.com/apppasswords
+3. Update `backend/app.py` with your credentials
+
+### Alternative Email Providers
+- **SendGrid** - Free tier available
+- **Mailgun** - Good for developers
+- **AWS SES** - Scalable email service
+
+## 🛠️ Technologies Used
+
+### Frontend
+- **HTML5** - Semantic markup
+- **CSS3** - Modern styling with custom properties
+- **JavaScript (ES6+)** - Interactive features
+- **Font Awesome** - Icons
+- **Google Fonts** - Typography (Inter, Outfit)
+
+### Backend
+- **Python 3** - Programming language
+- **Flask** - Web framework
+- **Flask-CORS** - Cross-origin resource sharing
+- **Flask-Mail** - Email integration
+- **SQLite** - Database
+
+## 📊 Features Breakdown
+
+### Particle Background
+Animated particle system with connecting lines that adapts to theme
+
+### Typing Animation
+Dynamic typing effect in hero section cycling through multiple phrases
+
+### Scroll Reveal
+Elements fade in and slide up as you scroll down the page
+
+### Skills Filter
+Interactive filtering system for different skill categories
+
+### Projects Filter
+Filter projects by category (All, Python, Hardware, Web)
+
+### Certifications Carousel
+Responsive carousel showing certifications with navigation controls
+
+### Contact Form
+Full-featured contact form with:
+- Client-side validation
+- Backend API integration
+- Email notifications
+- Database storage
+- Success/error feedback
+
+### Resume Download
+Track resume downloads with analytics
+
+## 🔒 Security Notes
+
+- Never commit sensitive credentials to version control
+- Use environment variables for production secrets
+- Implement rate limiting for API endpoints
+- Validate and sanitize all user inputs
+- Use HTTPS in production
+- Keep dependencies updated
+
+## 📝 License
+
+This project is open source and available for personal and commercial use.
+
+## 👤 Contact
+
+**Sandesh Bhatta**
+- Email: bhattasandesh148@gmail.com
+- LinkedIn: [linkedin.com/in/sandesh-bhatta](https://linkedin.com/in/sandesh-bhatta)
+- GitHub: [github.com/sandeshbhatta](https://github.com/sandeshbhatta)
+
+## 🙏 Acknowledgments
+
+- Design inspiration from modern portfolio trends
+- Icons from Font Awesome
+- Fonts from Google Fonts
+- Color gradients from UI Gradients
 
 ---
 
-## 🚀 About Me
-
-I’m a **motivated and self-driven engineering undergraduate** at **Tribhuvan University**, majoring in **Electronics, Communication, and Information Technology**.
-
-I specialize in **Python development, data analysis, automation, and IoT systems**, with hands-on experience gained through self-driven projects. My work spans **machine learning classification models, automation pipelines, embedded systems, numerical methods, and core computer organization concepts**.
-
-As a **first-generation engineer from a remote region**, I bring resilience, discipline, and a strong problem-solving mindset. I enjoy breaking complex engineering problems into **clear, logical steps** and building solutions that are **scalable, efficient, and practical**.
-
----
-
-## 🧠 What Drives Me
-
-- 🚀 Innovation through engineering  
-- 📚 Continuous learning & experimentation  
-- 🤝 Solving real-world problems  
-- 💡 Creative and analytical thinking  
-- 💻 Passion for technology & automation  
-
----
-
-## 🧰 Technical Skills
-
-### 💻 Programming & Software
-- Python, C, C++  
-- HTML, CSS, Basic JavaScript  
-- Tkinter (GUI Applications)
-
-### 📊 Data Analysis & Machine Learning
-- Pandas, NumPy, Matplotlib, Seaborn  
-- Scikit-learn (Classification, Model Evaluation)  
-- TensorFlow (Basics)
-
-### ⚙️ Automation & Scraping
-- Selenium, BeautifulSoup  
-- n8n (AI Agents & Workflow Automation)
-
-### 🔌 Hardware & Embedded Systems
-- Arduino, Sensors, Actuators  
-- Basic Circuit Design  
-- Raspberry Pi (Basics)
-
-### 🗄️ Databases & Tools
-- SQLite, Basic SQL  
-- Git, GitHub  
-- Google Colab, Jupyter Notebook
-
-### 🎨 Design & Productivity
-- Fusion 360 (3D Design)  
-- Figma (UI/UX)  
-- Photoshop, Canva  
-- Microsoft Office (Word, Excel)
-
----
-
-## 🧪 Projects (Highlighted)
-
-### 📊 Diwali Sales Analysis
-Analyzed customer behavior, regional trends, and sales insights to generate business intelligence.
-
-**Tech:** Python, Pandas, Seaborn
-
----
-
-### 🎓 School Result Management System
-GUI-based system for managing student records, authentication, result entry, and report generation.
-
-**Tech:** Python, Tkinter, SQLite
-
----
-
-### 🌱 Modern Smart Agriculture System
-IoT-based automation system that monitors soil moisture and weather conditions to optimize irrigation.
-
-**Tech:** Arduino, C++, Sensors
-
----
-
-### 🤖 AI-Powered Chatbot
-Basic NLP-based chatbot developed for machine learning practice and interaction testing.
-
-**Tech:** Python, TensorFlow
-
----
-
-### 🌐 Personal Portfolio Website
-Responsive website showcasing projects, skills, certifications, and contact information.
-
-**Tech:** HTML, CSS, JavaScript
-
----
-
-### 💬 WhatsApp Chat Automation
-Automated WhatsApp messaging system using browser automation.
-
-**Tech:** Python
-
----
-
-### 🌦️ Weather Forecasting App
-Web application providing real-time weather updates using public APIs.
-
-**Tech:** HTML, CSS, JavaScript, OpenWeather API
-
----
-
-### 🏦 Simple Banking System
-CLI-based system handling account creation, transactions, and history tracking.
-
-**Tech:** Python
-
----
-
-### 📦 Inventory Management System
-Inventory tracking system for stock management and report generation.
-
-**Tech:** Python, Pandas
-
----
-
-### 🤖 Personal AI Agent (n8n)
-Workflow-based AI agent automating reminders, alerts, and task handling.
-
-**Tech:** n8n
-
----
-
-### 📱 3D Print and Design (AutoCad)(Fusion-360)
-Designed a mobile stand optimized for stability and printability.
-
-**Tech:** Fusion 360, 3D Printing, 3D printer
-
----
-
-### ⚙️ Telegram-Based AI Agent
-Telegram-triggered voice assistant that fetches news, sends emails, and executes commands.
-
-**Tech:** n8n Automation
-
----
-
-## 🎓 Certifications & Workshops
-
-- Machine Learning on Supervised Learning(Linear and Logistic Regression) - Deeplearning.AI & Standford University 
--  AI for Everyone – DeepLearning.AI
-- ChatGPT Prompt Engineering for Developers – DeepLearning.AI  
-- AI for Beginners – HP LIFE  
-- What Is Generative AI? – LinkedIn Learning  
-- Python with Data Science – Tech Axis  
-- UI/UX Design with Figma – RIU  
-- Git & GitHub Workshop – ARC  
-- 3D Design & Printing – HP LIFE / RIU  
-- Cyber Security Awareness – HP LIFE  
-- Effective Presentations – HP LIFE  
-- HP LIFE Ambassador (2025)
-
----
-
-## 🌱 Currently Learning
-
-- Machine Learning model improvement  
-- Advanced Python automation  
-- API integration for IoT dashboards  
-- Wireless communication & sensor networks  
-- Clean, production-quality code practices  
-
----
-
-## 🤝 Open to Collaborate On
-
-- Python & Machine Learning Projects  
-- Data Analysis & Visualization  
-- Automation & AI Agents  
-- IoT + Software Hybrid Systems  
-- Engineering-focused open-source projects  
-
----
-
-## 📫 Get in Touch
-
-- 🌐 Portfolio: http://www.sandeshbhatta495.com.np
--  https://www.sandeshbhattta.me
-- 📧 Email: bhattasandesh148@gmail.com  
-- 💼 LinkedIn: https://www.linkedin.com/in/sandesh-bhatta  
-- 🐙 GitHub: https://github.com/sandeshbhatta495  
-
----
-
-## 🔍 GitHub Philosophy
-
-I believe in:
-- clean and readable code  
-- meaningful documentation  
-- learning-oriented repositories  
-- engineering logic over shortcuts  
-
-Each repository reflects **consistent learning and practical problem-solving**.
-
----
-Thank you 🙏
-
-## ⚡ Final Note
-
-I’m focused on becoming a **well-rounded engineer** who understands both **theory and implementation**.
-
-If you’re interested in **Python, ML, IoT, or automation**, let’s connect and build something impactful.
-
-⭐ *Feel free to star repositories if you find them useful.*
+**Built with ❤️ using HTML, CSS, JavaScript & Python**
