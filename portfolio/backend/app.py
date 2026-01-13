@@ -112,12 +112,27 @@ def get_stats():
 
 @app.route('/api/projects', methods=['GET'])
 def get_projects():
-    """Get all projects by scanning the assets/projects directory"""
+    """Get all projects by scanning the assets/projects directory and merging with metadata"""
     try:
+        import json
+        
         projects_dir = os.path.join(os.path.dirname(__file__), '..', 'assets', 'projects')
+        projects_json_path = os.path.join(os.path.dirname(__file__), 'projects.json')
         
         if not os.path.exists(projects_dir):
             return jsonify({'error': 'Projects directory not found'}), 404
+        
+        # Load project metadata from JSON
+        project_metadata = {}
+        if os.path.exists(projects_json_path):
+            try:
+                with open(projects_json_path, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                    # Create a dictionary mapping filename to metadata
+                    for proj in data.get('projects', []):
+                        project_metadata[proj['filename']] = proj
+            except Exception as e:
+                print(f"Error loading projects.json: {e}")
         
         projects = []
         supported_extensions = {'.jpg', '.jpeg', '.png', '.gif', '.webp'}
@@ -126,8 +141,22 @@ def get_projects():
         for filename in os.listdir(projects_dir):
             file_path = os.path.join(projects_dir, filename)
             
-            # Skip directories and non-image files
+            # Skip directories
             if os.path.isdir(file_path):
+                # Check if it's a directory without extension (like 'n8n automation' or 'suduko solver')
+                # Try to find an image inside or use the directory name
+                if filename in project_metadata:
+                    # Use metadata for this directory
+                    metadata = project_metadata[filename]
+                    project = {
+                        'title': metadata.get('title', filename.replace('-', ' ').replace('_', ' ').title()),
+                        'image': f'assets/projects/{filename}',  # Will need to handle this
+                        'description': metadata.get('description', f'Project: {filename}'),
+                        'tags': metadata.get('tags', []),
+                        'category': metadata.get('category', 'all'),
+                        'github': metadata.get('github', 'https://github.com/sandeshbhatta495')
+                    }
+                    projects.append(project)
                 continue
             
             # Get file extension
@@ -135,23 +164,31 @@ def get_projects():
             if ext.lower() not in supported_extensions:
                 continue
             
-            # Extract project title from filename
-            title = os.path.splitext(filename)[0]
-            # Convert to title case and clean up
-            title = title.replace('-', ' ').replace('_', ' ').title()
-            
             # Build relative path for frontend
             image_path = f'assets/projects/{filename}'
             
-            # Create project object
-            project = {
-                'title': title,
-                'image': image_path,
-                'description': f'Project: {title}',
-                'tags': [],
-                'category': 'all',
-                'github': 'https://github.com/sandeshbhatta495'
-            }
+            # Check if we have metadata for this file
+            if filename in project_metadata:
+                metadata = project_metadata[filename]
+                project = {
+                    'title': metadata.get('title', os.path.splitext(filename)[0].replace('-', ' ').replace('_', ' ').title()),
+                    'image': image_path,
+                    'description': metadata.get('description', f'Project: {metadata.get("title", filename)}'),
+                    'tags': metadata.get('tags', []),
+                    'category': metadata.get('category', 'all'),
+                    'github': metadata.get('github', 'https://github.com/sandeshbhatta495')
+                }
+            else:
+                # Fallback to basic info if no metadata found
+                title = os.path.splitext(filename)[0].replace('-', ' ').replace('_', ' ').title()
+                project = {
+                    'title': title,
+                    'image': image_path,
+                    'description': f'Project: {title}',
+                    'tags': [],
+                    'category': 'all',
+                    'github': 'https://github.com/sandeshbhatta495'
+                }
             
             projects.append(project)
         
