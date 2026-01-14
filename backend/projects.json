@@ -105,7 +105,7 @@
             "github": "https://github.com/sandeshbhatta495"
         },
         {
-            "filename": "bankin gmanagement sys.jpg",
+            "filename": "banking management sys.jpg",
             "title": "Banking Management System",
             "description": "Full-featured banking management system developed in Python with SQLite database. Implements account creation, transactions, balance inquiries, and transaction history. Features secure authentication, data validation, and comprehensive error handling for reliable banking operations.",
             "category": "python",
