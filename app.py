@@ -1,9 +1,10 @@
-from flask import Flask, request, jsonify, send_file
+from flask import Flask, request, jsonify, send_file, render_template
 from flask_cors import CORS
 from flask_mail import Mail, Message
 import os
 from datetime import datetime
-from database import Database
+from backend.database import Database
+
 
 app = Flask(__name__)
 CORS(app)
@@ -13,9 +14,9 @@ app.config['SECRET_KEY'] = 'your-secret-key-here-change-in-production'
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = 'bhattasandesh148@gmail.com'  # Change this
-app.config['MAIL_PASSWORD'] = '@SANDESH BHATTA1'  # Change this
-app.config['MAIL_DEFAULT_SENDER'] = 'bhattasandesh148@gmail.com'  # Change this
+app.config['MAIL_USERNAME'] = os.getenv("MAIL_USERNAME")
+app.config['MAIL_PASSWORD'] = os.getenv("MAIL_PASSWORD")
+app.config['MAIL_DEFAULT_SENDER'] = os.getenv("MAIL_DEFAULT_SENDER")
 
 mail = Mail(app)
 db = Database()
@@ -79,7 +80,8 @@ Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
 def download_resume():
     """Handle resume download requests"""
     try:
-        resume_path = os.path.join(os.path.dirname(__file__), '..', 'assets', 'Sandesh_Bhatta_Resume.pdf')
+        BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+        resume_path = os.path.join(BASE_DIR, 'assets', 'Sandesh_Bhatta_Resume.pdf')
         
         if not os.path.exists(resume_path):
             return jsonify({'error': 'Resume file not found'}), 404
