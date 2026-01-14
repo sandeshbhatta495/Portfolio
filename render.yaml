@@ -1,0 +1,108 @@
+# render.yaml - Render Web Service Configuration
+# This file tells Render how to build and run your Flask app
+#
+# Documentation: https://render.com/docs/yaml-spec
+
+services:
+  - type: web
+    name: portfolio
+    env: python
+    region: us-east  # Choose your region
+    plan: free       # Change to 'standard' for production
+    
+    # Python version
+    pythonVersion: 3.10
+    
+    # Build command - installs dependencies
+    buildCommand: "pip install -r requirements.txt"
+    
+    # Start command - runs the production server
+    startCommand: "gunicorn app:app"
+    
+    # Environment variables
+    # Add these in Render Dashboard UI instead of here
+    # (Dashboard variables take precedence and are more secure)
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: FLASK_DEBUG
+        value: "False"
+      - key: PORT
+        value: "5000"
+
+# ============================================================================
+# HOW TO USE THIS FILE
+# ============================================================================
+#
+# 1. USING RENDER DASHBOARD (RECOMMENDED):
+#    a. Push this file to GitHub (optional - Render can work without it)
+#    b. Go to render.com/dashboard
+#    c. Click "Create" → "Web Service"
+#    d. Connect your GitHub repository
+#    e. Render will auto-detect this render.yaml file
+#    f. Set environment variables in the Render dashboard
+#
+# 2. MANUAL SETUP (If you don't use render.yaml):
+#    a. Go to render.com/dashboard
+#    b. Click "Create" → "Web Service"
+#    c. Configure manually:
+#       - Runtime: Python 3.10
+#       - Build: pip install -r requirements.txt
+#       - Start: gunicorn app:app
+#    d. Set environment variables in the Environment tab
+#
+# 3. DEPLOYING CHANGES:
+#    - Push code to GitHub
+#    - Render automatically redeploys
+#    - Watch Logs tab for errors
+#
+# ============================================================================
+# REQUIRED ENVIRONMENT VARIABLES (Set in Render Dashboard)
+# ============================================================================
+#
+# MAIL_USERNAME=your-email@gmail.com
+# MAIL_PASSWORD=your-app-specific-password
+# MAIL_SERVER=smtp.gmail.com
+# MAIL_PORT=587
+# RECIPIENT_EMAIL=your-email@gmail.com
+# SECRET_KEY=your-random-secret-key-here
+#
+# ============================================================================
+# TROUBLESHOOTING
+# ============================================================================
+#
+# Build Fails: "pip install" error
+#   - Check requirements.txt has all dependencies with versions
+#   - Check no environment-specific packages (like .env files)
+#
+# App Crashes: "ModuleNotFoundError"
+#   - Add the missing package to requirements.txt
+#   - Push the change to GitHub
+#
+# CSS/JS Not Loading: 404 errors
+#   - Verify Flask uses {{ url_for('static', filename='...') }}
+#   - Check static folder is in the root directory
+#   - Make sure static files are committed to GitHub
+#
+# Contact Form Not Working: "Email failed to send"
+#   - Check MAIL_USERNAME and MAIL_PASSWORD are set in Render
+#   - Verify Gmail app-specific password (not regular password)
+#   - Check RECIPIENT_EMAIL is set correctly
+#
+# ============================================================================
+# ABOUT PLANS
+# ============================================================================
+#
+# Free Plan:
+#   - Good for testing and learning
+#   - App goes to sleep after 15 mins inactivity
+#   - Database doesn't persist data between deploys
+#   - Fine for portfolio/demo projects
+#
+# Standard Plan:
+#   - Always running (no sleep)
+#   - Database persists data
+#   - Paid tier ($7+/month)
+#   - Recommended for production portfolios
+#
+# ============================================================================
