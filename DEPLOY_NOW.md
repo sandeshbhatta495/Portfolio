@@ -41,7 +41,7 @@ Add these in Render dashboard:
 
 | Key | Value |
 |-----|-------|
-| MAIL_USERNAME | your-email@gmail.com |
+| MAIL_USERNAME | bhattasandesh |
 | MAIL_PASSWORD | [16-char app password] |
 | MAIL_SERVER | smtp.gmail.com |
 | MAIL_PORT | 587 |
