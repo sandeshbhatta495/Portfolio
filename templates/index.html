@@ -24,8 +24,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
-    <!-- JS -->
-     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
 </head>
 
 <body>
@@ -36,7 +35,8 @@
     <nav class="navbar" id="navbar">
         <div class="container nav-container">
             <a href="#home" class="logo">
-                <img src="assets/profile.jpg" alt="Sandesh Bhatta" class="logo-image">
+                <img src="{{ url_for('static', filename='assets/profile.jpg') }}" alt="Sandesh Bhatta"
+                    class="logo-image">
                 <span class="logo-text">SB</span>
             </a>
 
@@ -94,7 +94,7 @@
                         <a href="mailto:bhattasandesh148@gmail.com" class="social-link" aria-label="Email">
                             <i class="fas fa-envelope"></i>
                         </a>
-                        <a href="https://linkedin.com/in/sandesh-bhatta" target="_blank" class="social-link"
+                        <a href="https://linkedin.com/in/sandeshbhatta" target="_blank" class="social-link"
                             aria-label="LinkedIn">
                             <i class="fab fa-linkedin"></i>
                         </a>
@@ -107,7 +107,8 @@
                 <div class="hero-image">
                     <div class="image-wrapper">
                         <div class="image-glow"></div>
-                        <img src="assets/profile.jpg" alt="Sandesh Bhatta" id="profileImage">
+                        <img src="{{ url_for('static', filename='assets/profile.jpg') }}" alt="Sandesh Bhatta"
+                            id="profileImage">
                     </div>
                 </div>
             </div>
@@ -398,7 +399,7 @@
                                 <span class="tag">Supervised Learning</span>
                                 <span class="tag">Unsupervised Learning</span>
                                 <span class="tag">Reinforcement Learning</span>
-                                
+
                             </div>
                         </div>
                         <!-- Certification 2 -->
@@ -434,7 +435,7 @@
                                 <span class="tag">AI</span>
                                 <span class="tag">Image Generation</span>
                                 <span class="tag">Google Cloud Skills Boost</span>
-                                
+
                             </div>
                         </div>
                         <!-- Certification 3 -->
@@ -583,7 +584,7 @@
                         </div>
                         <div class="contact-details">
                             <h3>LinkedIn</h3>
-                            <a href="https://linkedin.com/in/sandesh-bhatta"
+                            <a href="https://linkedin.com/in/sandeshbhatta"
                                 target="_blank">linkedin.com/in/sandesh-bhatta</a>
                         </div>
                     </div>
@@ -594,7 +595,7 @@
                         </div>
                         <div class="contact-details">
                             <h3>GitHub</h3>
-                            <a href="https://github.com/sandeshbhatta495495"
+                            <a href="https://github.com/sandeshbhatta495"
                                 target="_blank">github.com/sandeshbhatta495</a>
                         </div>
                     </div>
@@ -632,6 +633,8 @@
         </div>
     </footer>
 
+    <!-- JS -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 
 </html>

@@ -264,7 +264,7 @@ async function loadProjects() {
         projectsGrid.innerHTML = '<div class="loading-projects">Loading projects...</div>';
 
         // Fetch projects from backend
-        const response = await fetch('http://localhost:5000/api/projects');
+        const response = await fetch('/api/projects');
 
         if (!response.ok) {
             throw new Error('Failed to fetch projects');
@@ -408,7 +408,7 @@ contactForm.addEventListener('submit', async (e) => {
     };
 
     try {
-        const response = await fetch('http://localhost:5000/api/contact', {
+        const response = await fetch('/api/contact', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -443,7 +443,7 @@ downloadResumeBtn.addEventListener('click', async (e) => {
     e.preventDefault();
 
     try {
-        const response = await fetch('http://localhost:5000/api/download-resume');
+        const response = await fetch('/api/download-resume');
 
         if (response.ok) {
             const blob = await response.blob();

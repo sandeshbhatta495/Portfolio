@@ -1,10 +1,9 @@
-from flask import Flask, request, jsonify, send_file, render_template
+from flask import Flask, request, jsonify, send_file, render_template, url_for
 from flask_cors import CORS
 from flask_mail import Mail, Message
 import os
 from datetime import datetime
 from backend.database import Database
-
 
 app = Flask(__name__)
 CORS(app)
@@ -20,6 +19,11 @@ app.config['MAIL_DEFAULT_SENDER'] = os.getenv("MAIL_DEFAULT_SENDER")
 
 mail = Mail(app)
 db = Database()
+
+@app.route('/')
+def home():
+    """Serve the main portfolio page"""
+    return render_template('index.html')
 
 @app.route('/api/contact', methods=['POST'])
 def contact():
@@ -80,8 +84,9 @@ Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
 def download_resume():
     """Handle resume download requests"""
     try:
+        # Resume is now in static/assets
         BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-        resume_path = os.path.join(BASE_DIR, 'assets', 'Sandesh_Bhatta_Resume.pdf')
+        resume_path = os.path.join(BASE_DIR, 'static', 'assets', 'Sandesh_Bhatta_Resume.pdf')
         
         if not os.path.exists(resume_path):
             return jsonify({'error': 'Resume file not found'}), 404
@@ -114,15 +119,16 @@ def get_stats():
 
 @app.route('/api/projects', methods=['GET'])
 def get_projects():
-    """Get all projects by scanning the assets/projects directory and merging with metadata"""
+    """Get all projects by scanning the static/assets/projects directory and merging with metadata"""
     try:
         import json
         
-        projects_dir = os.path.join(os.path.dirname(__file__), '..', 'assets', 'projects')
+        # Adjusted path to point to static/assets/projects
+        projects_dir = os.path.join(os.path.dirname(__file__), 'static', 'assets', 'projects')
         projects_json_path = os.path.join(os.path.dirname(__file__), 'projects.json')
         
         if not os.path.exists(projects_dir):
-            return jsonify({'error': 'Projects directory not found'}), 404
+            return jsonify({'error': 'Projects directory not found', 'path': projects_dir}), 404
         
         # Load project metadata from JSON
         project_metadata = {}
@@ -152,7 +158,7 @@ def get_projects():
                     metadata = project_metadata[filename]
                     project = {
                         'title': metadata.get('title', filename.replace('-', ' ').replace('_', ' ').title()),
-                        'image': f'assets/projects/{filename}',  # Will need to handle this
+                        'image': f'static/assets/projects/{filename}', 
                         'description': metadata.get('description', f'Project: {filename}'),
                         'tags': metadata.get('tags', []),
                         'category': metadata.get('category', 'all'),
@@ -166,8 +172,12 @@ def get_projects():
             if ext.lower() not in supported_extensions:
                 continue
             
-            # Build relative path for frontend
-            image_path = f'assets/projects/{filename}'
+            # Build path relative to web root (which is handled by Flask's static folder)
+            # Since 'static' is the endpoint for static files, we construct the URL accordingly
+            # Note: We return the path segment that the frontend will use. 
+            # If frontend uses it directly in src, it should match the static route.
+            # Assuming frontend will use it as src="static/assets/projects/filename"
+            image_path = f'static/assets/projects/{filename}'
             
             # Check if we have metadata for this file
             if filename in project_metadata:
