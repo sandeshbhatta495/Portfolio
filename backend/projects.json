@@ -8,7 +8,6 @@
             "tags": [
                 "Python",
                 "Machine Learning",
-                "Deep Learning",
                 "CNN",
                 "TensorFlow",
                 "Image Classification"
@@ -31,7 +30,7 @@
             "github": "https://github.com/sandeshbhatta495"
         },
         {
-            "filename": "slary and job  prediction ml.jpg",
+            "filename": "salary and job prediction ml.jpg",
             "title": "Salary and Job Prediction ML",
             "description": "Advanced machine learning model for predicting salary ranges and job positions based on skills, experience, and education. Implements regression and classification algorithms with feature importance analysis. Helps job seekers understand market trends and expected compensation.",
             "category": "python",
@@ -105,7 +104,7 @@
             "github": "https://github.com/sandeshbhatta495"
         },
         {
-            "filename": "banking management sys.jpg",
+            "filename": "banking management system.jpg",
             "title": "Banking Management System",
             "description": "Full-featured banking management system developed in Python with SQLite database. Implements account creation, transactions, balance inquiries, and transaction history. Features secure authentication, data validation, and comprehensive error handling for reliable banking operations.",
             "category": "python",
@@ -128,7 +127,8 @@
                 "Database",
                 "Education",
                 "Management System",
-                "SQLite"
+                "SQLite",
+                "Tikinator"
             ],
             "github": "https://github.com/sandeshbhatta495"
         },
